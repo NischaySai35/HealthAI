@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Button from '../components/Button';
-import { generateSampleProviders } from '../utils/fakeBackend';
+import { generateSampleProviders } from '../utils/Backend';
 
 export default function UploadPage({ onNavigate }) {
   const [preview, setPreview] = useState(null);

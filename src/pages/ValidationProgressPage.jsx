@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import ProgressStep from '../components/ProgressStep';
 import LogEntry from '../components/LogEntry';
 import Button from '../components/Button';
-import { validateProviders } from '../utils/fakeBackend';
+import { validateProviders } from '../utils/Backend';
 
 const AGENTS = [
   {
@@ -53,6 +53,7 @@ const AGENTS = [
 
 export default function ValidationProgressPage({ onNavigate, providers, setResults }) {
   const [activeAgent, setActiveAgent] = useState(0);
+  const [completedAgents, setCompletedAgents] = useState(new Set());
   const [logs, setLogs] = useState([]);
   const [isComplete, setIsComplete] = useState(false);
   const [results, setLocalResults] = useState(null);
@@ -62,6 +63,7 @@ export default function ValidationProgressPage({ onNavigate, providers, setResul
 
     const runValidation = async () => {
       let allLogs = [];
+      const completed = new Set();
 
       // Simulate each agent running sequentially
       for (let i = 0; i < AGENTS.length; i++) {
@@ -102,6 +104,10 @@ export default function ValidationProgressPage({ onNavigate, providers, setResul
           type: 'complete',
         }];
         setLogs([...allLogs]);
+
+        // Mark this agent as completed
+        completed.add(i);
+        setCompletedAgents(new Set(completed));
       }
 
       // Run validation on all providers
@@ -147,7 +153,7 @@ export default function ValidationProgressPage({ onNavigate, providers, setResul
                   key={agent.id}
                   label={agent.name}
                   status={
-                    idx < activeAgent ? 'complete' :
+                    completedAgents.has(idx) ? 'complete' :
                     idx === activeAgent ? 'active' :
                     'pending'
                   }

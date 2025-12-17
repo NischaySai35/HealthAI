@@ -1,5 +1,3 @@
-// FAKE BACKEND - This will be replaced with real API calls in production
-
 const FIRST_NAMES = ['Dr. Michael', 'Dr. Sarah', 'Dr. James', 'Dr. Jennifer', 'Dr. Robert', 'Dr. Emily'];
 const LAST_NAMES = ['Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Garcia', 'Miller', 'Davis'];
 const SPECIALTIES = ['Cardiology', 'Neurology', 'Orthopedics', 'Dermatology', 'Pediatrics', 'General Practice'];
