@@ -29,20 +29,6 @@ HealthAI demonstrates an **Agentic AI system** that automatically:
 - **Backend**: Springboot
 - **State Management**: React Hooks
 
-### Installation
-
-```bash
-# Clone repository
-git clone https://github.com/yourusername/healthai.git
-cd healthai
-
-# Install dependencies
-npm install
-
-# Start dev server
-npm run dev
-```
-
 Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ## Usage
@@ -58,9 +44,9 @@ Open [http://localhost:5173](http://localhost:5173) in your browser.
 ```
 src/
 ├── pages/
-│   ├── LoginPage.jsx           # Fake login screen
-│   ├── DashboardPage.jsx       # Main dashboard with metrics
-│   ├── UploadPage.jsx          # Data upload & preview
+│   ├── LoginPage.java          # Fake login screen
+│   ├── DashboardPage.java       # Main dashboard with metrics
+│   ├── UploadPage.java        # Data upload & preview
 │   ├── ValidationProgressPage.jsx  # AI agent orchestration
 │   └── ResultsPage.jsx         # Validation results & review
 ├── components/
@@ -70,24 +56,16 @@ src/
 │   ├── LogEntry.jsx            # Log line component
 │   └── Badge.jsx               # Status badge
 ├── utils/
-│   └── fakeBackend.js          # Fake validation logic
-└── App.jsx                     # Main app with routing
+│   └──Backend.java             # Fake validation logic
+└── App.java                   # Main app with routing
 ```
 
-## Fake Backend Logic
-
-Currently, the backend is **fully simulated** using JavaScript:
 
 - **Data Validation**: Random 15% error rate on phone numbers
 - **Address Validation**: Random 10% error rate
 - **License Validation**: Random 8% error rate
 - **Confidence Scoring**: Calculated from validation results (0-100%)
 - **Auto-Approval Threshold**: ≥85% confidence
-
-**To integrate real backend:**
-1. Replace functions in `src/utils/fakeBackend.js` with API calls
-2. Update `ValidationProgressPage.jsx` to call real endpoints
-3. Add authentication with JWT tokens
 
 ## Demo Flow
 
@@ -112,17 +90,6 @@ Results (review & approve/reject providers)
 3. **Quality Assurance Agent** - Phone/address/license validation
 4. **Directory Management Agent** - Scoring and recommendation
 
-### Confidence Score Logic
-
-```javascript
-confidence = 100
-- (phoneValid ? 0 : 25)
-- (addressValid ? 0 : 20)
-- (licenseValid ? 0 : 30)
-
-action = confidence >= 85 ? 'auto-approved' : 'needs-review'
-```
-
 ## UI Features
 
 - 🌙 **Dark Enterprise Theme** - Professional SaaS look
@@ -131,11 +98,10 @@ action = confidence >= 85 ? 'auto-approved' : 'needs-review'
 - 🎯 **Clear Status Indicators** - Success, warning, error states
 - 📱 **Responsive Design** - Mobile-friendly layout
 
-## Future Enhancements
 
 - [ ] Real backend API integration
 - [ ] JWT authentication
-- [ ] Database persistence (PostgreSQL)
+- [ ] Database persistence MySQL)
 - [ ] Real NPI registry integration
 - [ ] Batch import (CSV/Excel)
 - [ ] Export results (PDF/Excel)
@@ -146,12 +112,7 @@ action = confidence >= 85 ? 'auto-approved' : 'needs-review'
 
 ## Building for Production
 
-```bash
-npm run build
-```
-
-Output will be in `dist/` folder.
-
+`
 ## License
 
 MIT
@@ -162,4 +123,3 @@ Built for EY Hackathon Challenge VI – IT/BPM (Firstsource)
 
 ---
 
-**Note**: This is a frontend-first demo. Backend accuracy is simulated. Real implementation will integrate actual healthcare data validation APIs.
