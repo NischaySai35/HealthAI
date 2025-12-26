@@ -26,14 +26,8 @@ HealthAI demonstrates an **Agentic AI system** that automatically:
 
 - **Frontend**: React (Vite)
 - **Styling**: Tailwind CSS
-- **Backend**: Fake (JavaScript simulation) — Ready for real API integration
+- **Backend**: Springboot
 - **State Management**: React Hooks
-
-## Getting Started
-
-### Prerequisites
-- Node.js 16+
-- npm or yarn
 
 ### Installation
 
